@@ -7,19 +7,22 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
+import static Stepdefinition.Hooks.getDriver;
+
 public class LoginSD {
 
-    WebDriver driver;
+   static WebDriver driver;
 
     @Given("I am on login page")
     public void i_am_on_login_page() {
 
         System.out.println("I am on login page");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = getDriver();
         driver.manage().window().maximize();
         driver.get("http://stock.scriptinglogic.net");
 
@@ -45,10 +48,14 @@ public class LoginSD {
     public void i_should_be_land_up_to_the_home_page() {
         System.out.println("I should be land up to the home page");
 
-        String expected = "http://stock.scriptinglogic.net/dashboard.php";
+        String expected = "http://stock.scriptinglogic.net/dashboard.php1";
         String actual = driver.getCurrentUrl();
+
+        Assert.assertEquals(actual,expected,"test is failed");
 
 
     }
+
+
 
 }

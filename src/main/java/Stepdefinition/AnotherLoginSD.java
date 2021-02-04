@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class AnotherLoginSD {
 
@@ -38,7 +40,11 @@ public class AnotherLoginSD {
     @Then("^I should get error message$")
     public void i_should_get_error_message() throws Throwable {
         System.out.println("I should get error message");
+
+        Assert.assertEquals(true,false,"test is failed");
     }
+
+
 
 
     @When("^I dont enter username, password$")
@@ -56,6 +62,12 @@ public class AnotherLoginSD {
 
         System.out.println("I enter : "+user+" "+pass);
 
+    }
+
+    @Given("^i open browser , maximize it$")
+    public void i_open_browser_maximize_it() throws Throwable {
+
+        System.out.println("======= i open browser , maximize it =====");
     }
 
 }

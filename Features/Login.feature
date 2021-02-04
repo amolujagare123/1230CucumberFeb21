@@ -1,6 +1,10 @@
 Feature: testing of all login scenarios
 
+  Background: opening browser
+    Given i open browser , maximize it
 
+
+  @realScenario
   Scenario: to test the functionality of login button for valid input
     Given I am on login page
     When  I enter valid username valid password
@@ -17,7 +21,7 @@ Feature: testing of all login scenarios
     Then I should be land up to the dashboard
 
 
-  @AnotherLogin
+  @AnotherLogin  @specialScenario
   Scenario: to test the functionality of login button for invalid input on another login page
     Given I am on billing login page
    # When  I enter invalid username, password
